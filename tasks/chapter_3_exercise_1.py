@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 
 import numpy as np
 
@@ -22,10 +21,6 @@ if __name__ == '__main__':
     grid_search = GridSearchCV(knn_clf, param_grid, n_jobs=-1, cv=5, verbose=5)
     grid_search.fit(X_train, y_train)
 
-    work_dir = os.path.dirname(os.path.realpath(__file__))
-    timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    output_path = os.path.join(work_dir, 'chap3_ex1_grid_search_{timestamp}.pkl'.format(timestamp=timestamp))
-
+    output_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'chapter_3_exercise_1.joblib')
     joblib.dump(grid_search, output_path)
-
     print('Result stored in {out}'.format(out=output_path))
