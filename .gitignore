@@ -4,3 +4,4 @@ venv/
 datasets/
 __pycache__/
 *.pkl
+*.joblib
